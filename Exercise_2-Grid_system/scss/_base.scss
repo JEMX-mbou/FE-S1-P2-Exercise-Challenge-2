@@ -1,0 +1,15 @@
+$colors: (rgb(255, 191, 0), rgb(0, 255, 170), rgb(0, 170, 255));
+
+.row {
+  .col,
+  [class^="col-"],
+  [class*=" col-"] {
+    $i: 1;
+    @each $color in $colors {
+      &:nth-of-type(#{$i}) .inner {
+        background-color: $color;
+      }
+      $i: $i + 1;
+    }
+  }
+}
